@@ -4,12 +4,15 @@ import javafx.scene.Parent;
 import javafx.scene.layout.GridPane;
 
 public class Clavier extends Parent{
+	
+	// initialisation des attributs
+	
+	Ecran ecran; // pour que le clavier puisse agir sur l'écran
+	Memoire memoire; // pour que le clavier agisse sur la mémoire
 
-	Ecran ecran;
-	Memoire memoire;
+	GridPane gridPane; // grille contenant les touches
 
-	GridPane gridPane;
-
+	// touches des numéros
 	Touche touche1;
 	Touche touche2;
 	Touche touche3;
@@ -20,7 +23,8 @@ public class Clavier extends Parent{
 	Touche touche8;
 	Touche touche9;
 	Touche touche0;
-
+	
+	//touches des fonctions
 	Touche toucheCE;
 	Touche toucheC;
 	Touche toucheRetour;
@@ -30,17 +34,16 @@ public class Clavier extends Parent{
 	Touche touchePlus;
 	Touche toucheEgal;
 	Touche toucheVirgule;
-	Touche toucheParenthese;		//version complexe
-	Touche toucheSigne;				//version basique
+	Touche toucheSigne;				
 
 	public Clavier(Ecran ecran, Memoire memoire) {
 
-		this.ecran=ecran;
+		this.ecran=ecran; // on récupère l'écran et la mémoire
 		this.memoire=memoire;
 		
-		GridPane gridPane = new GridPane();
+		GridPane gridPane = new GridPane(); // on crée la grille
 
-		touche1 = new ToucheNumero("1",this.ecran,this.memoire);
+		touche1 = new ToucheNumero("1",this.ecran,this.memoire); // création des touches numéros
 		touche2 = new ToucheNumero("2",this.ecran,this.memoire);
 		touche3 = new ToucheNumero("3",this.ecran,this.memoire);
 		touche4 = new ToucheNumero("4",this.ecran,this.memoire);
@@ -51,7 +54,7 @@ public class Clavier extends Parent{
 		touche9 = new ToucheNumero("9",this.ecran,this.memoire);
 		touche0 = new ToucheNumero("0",this.ecran,this.memoire);
 
-		toucheCE = new ToucheAction("CE",this.ecran,this.memoire);
+		toucheCE = new ToucheAction("CE",this.ecran,this.memoire); // création des touches d'action
 		toucheC = new ToucheAction("C",this.ecran,this.memoire);
 		toucheRetour = new ToucheAction("←",this.ecran,this.memoire);
 		toucheFois = new ToucheAction("x",this.ecran,this.memoire);
@@ -60,10 +63,9 @@ public class Clavier extends Parent{
 		touchePlus = new ToucheAction("+",this.ecran,this.memoire);
 		toucheEgal = new ToucheAction("=",this.ecran,this.memoire);
 		toucheVirgule = new ToucheAction(".",this.ecran,this.memoire);
-		toucheParenthese = new ToucheAction("()",this.ecran,this.memoire);	//version complexe
-		toucheSigne = new ToucheAction("±",this.ecran,this.memoire);		//version basique
+		toucheSigne = new ToucheAction("±",this.ecran,this.memoire);		
 
-		gridPane.add(toucheCE, 0, 0);
+		gridPane.add(toucheCE, 0, 0); // ajout des touches à la grille
 		gridPane.add(toucheC, 1, 0);
 		gridPane.add(toucheRetour, 2, 0);
 		gridPane.add(toucheFois, 3, 0);
@@ -79,16 +81,15 @@ public class Clavier extends Parent{
 		gridPane.add(touche2, 1, 3);
 		gridPane.add(touche3, 2, 3);
 		gridPane.add(touchePlus, 3, 3);
-		//gridPane.add(toucheParenthese, 0, 4);		//version complexe
-		gridPane.add(toucheSigne, 0, 4);    		//version basique
+		gridPane.add(toucheSigne, 0, 4);    		
 		gridPane.add(touche0, 1, 4);
 		gridPane.add(toucheVirgule, 2, 4);
 		gridPane.add(toucheEgal, 3, 4);
 
-		gridPane.setHgap(5);
+		gridPane.setHgap(5); // écart en pixel entre les éléments : 5px horizontal 3px vertical
 		gridPane.setVgap(3);
 
-		this.getChildren().add(gridPane);
+		this.getChildren().add(gridPane); 
 
 	}
 	

@@ -13,6 +13,7 @@ import javafx.scene.text.TextAlignment;
 
 public class Ecran extends Parent{
 
+	// initialisation des attributs
 	Label label;
 	double valeur;
 
@@ -20,19 +21,19 @@ public class Ecran extends Parent{
 
 		Group group = new Group();
 
-		Rectangle rect1 = new Rectangle(315,100);
+		Rectangle rect1 = new Rectangle(315,100); // rectangle de fond
 		rect1.setFill(Color.AQUA);
 		rect1.setArcHeight(40);
 		rect1.setArcWidth(40);
 
-		Rectangle rect2 = new Rectangle(314,100);
+		Rectangle rect2 = new Rectangle(314,100); //rectangle pour la bordure
 		rect2.setFill(Color.TRANSPARENT);
 		rect2.setStroke(Color.BLACK);
 		rect2.setStrokeWidth(3);
 		rect2.setArcHeight(40);
 		rect2.setArcWidth(40);
 
-		label = new Label();
+		label = new Label(); // label qui affichera les valeurs
 		label.setText("0");
 		label.setFont(Font.font(50));
 		label.setTextFill(Color.BLACK);
@@ -41,15 +42,15 @@ public class Ecran extends Parent{
 		label.setPadding(new Insets(12, 15, 0, 0));
 		label.setAlignment(Pos.BASELINE_RIGHT); 
 
-		group.getChildren().addAll(rect1,rect2,label);
+		group.getChildren().addAll(rect1,rect2,label); // ajout au Group
 
 		this.getChildren().add(group);
 
 	}
 	
-	public double getValeurEcran() {
+	public double getValeurEcran() { 
 		
-		this.valeur=Double.valueOf(this.label.getText());
+		this.valeur=Double.valueOf(this.label.getText()); // on récupère la valeur de l'écran (du label)
 		return this.valeur;
 		
 	}
